@@ -1,0 +1,113 @@
+/* #Use BEM naming convention
+https://medium.freecodecamp.org/css-naming-conventions-that-will-save-you-hours-of-debugging-35cea737d849
+ */
+/* 
+#0 Use BEM naming convention
+B- block
+    .stick-man
+
+E - element
+    .stick-man__head
+    .stick-man__arms
+    .stick-man__feat
+
+M - modifiers - like diffrent colors for buttons
+    .stick-man--blue
+    .stick-man--red
+
+    |Block|   |__element | --modifier
+    .stick-man__head--small
+    .stick-man__arm--blue
+
+#1 Adding css styles
+#2 Group multiple selectors into one rule
+#3 Combinators
+#4 Box model troubleshooting
+#5 Shortens
+#6 Width and height
+#7 Display
+#8 navbar styling
+#9 Pseudo-class and element
+*/
+ 
+/* #1 Adding css styles
+    There are 3 methods of adding css to html
+    1. Style tag
+    2.Inline styling - style="background: #ff1b68">
+    3. Adding link in the header */
+
+/* #2  Group multiple selectors into one rule if you use same property 
+.class1, class2, class3*/
+
+/* #3 Combinators:
+- Adjecent sibling  - div + p
+- General sibling - div ~ p
+- Child - div > p
+- Descendant -   div p */
+
+/* #4 Box model contains:
+     1. Content
+     2. Padding
+     3. Border
+     4. Margin
+
+     -if there are two margins they will collapse to one
+       -This is why it is good to use eaither margin-top or margin-bottom!
+    
+    -Check for those issues:
+    -bigger one will win 
+    - Child margin will affect its parent
+    - If there is element with no padding and content    */ 
+
+/* #5 Shortens:
+    /* top | right | bottom | left 
+    margin: 5px 10px 5px 10px;
+    */
+    
+
+    /* top-bottom | left-right 
+     margin: 5px 10px;
+    */
+   
+/* #6 Width and height
+
+Every elements size is calculated using box-sizing property.
+    To make width/height size contain: margin/padding/content
+
+ * {box-sizing: border-box;}
+
+ Those are calculated using box-model.
+
+
+HEIGHT/WIDTH property - padding and border are NOT part of this property.
+  */
+
+  /* #7 Display
+  
+  Elements on site can be devided into:
+inline: take only as much space as they need. will allow other elements to sit next to them, ie <a>
+block: takes whole width of page <div>. Height of the element cannot be manipulated
+inline-block: blocks that are inline. They are next to each other but its height can be easily styled
+
+Display property can also take none value removing the object from document flow*/
+
+
+/* #8 navbar styling
+ -if multiple elemts are in one container/div if one is larger, rest will be push to bottom.
+ This can be fixed by using vertical-align: middle; on both */
+
+
+ /* #9 Pseudo-class and element
+ PSeudo class example is hover, it targets elemtn in spacyfic state
+ :hover
+ :first-of-typ
+ 
+ Pseudo element is a part of element
+ p::after{
+     content:("link")
+ }
+
+ p::first-letter{}
+ 
+ */
+

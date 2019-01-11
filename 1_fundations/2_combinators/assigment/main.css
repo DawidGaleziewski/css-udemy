@@ -1,0 +1,30 @@
+body{
+    background: FAFAFA;
+    font-size: 20px;
+    font-family: sans-serif;
+}
+
+li + li {
+    background-color: black;
+    color: white;
+}
+
+ol > li {
+    background-color: black;
+    color: white;
+}
+
+h1 {
+    color: red;
+    font-family: sans-serif;
+}
+
+.second-li code {
+    color: aquamarine;
+}
+
+code {
+    font-family: 'Courier New', Courier, monospace;
+    color: red;
+}
+

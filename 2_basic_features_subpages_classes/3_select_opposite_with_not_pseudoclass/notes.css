@@ -1,0 +1,4 @@
+/* select any element which is NOT a p tag */
+:not(p){
+    color: blue;
+}

@@ -1,0 +1,7 @@
+
+
+/* Overwrites specifity and all other selectors */
+ /* this should NOT be used in most cases */
+div {
+    color: red !important;
+}

@@ -1,0 +1,59 @@
+html {
+    background: #b3b3b3;
+    padding: 15px;
+    border: 5px solid white;
+    margin: 15px;
+    height: 2000px;
+}
+
+body {
+    background: #fa923f;
+    padding: 20px;
+    border: 5px solid black;
+    margin: 0;
+  }
+  
+.parent {
+    background: white;
+    padding: 20px;
+    border: 5px solid black;
+    margin: 0;
+
+    /* hide element if it steps out of parent */
+    overflow: hidden;
+
+    
+    position: relative;
+    /* the issue is if we use it on body it won't work as the overflow will be applied to html
+    However if we apply any overflow value to  html body will accept this value */
+    /*  By default overflow value is passed to html, unless it has overflow value already*/
+    /* this can be any value even overflow: auto */
+}
+  
+.parent div {
+    background: rgb(105, 105, 109);
+    color: white;
+    padding: 10px;
+    border: 5px solid black;
+    margin: 10px;
+}
+
+/* if we add position: relative nothing changes visualy on page
+ */
+.parent .child-1 {
+    position: relative;
+
+    /* one thing that changes is top and left are now functional
+    their point of referance is elements default position in the document flow */
+    /* positioning context is element itself */
+
+    /* element moves from  top to  down */
+    top: 160px;
+    /* element moves from the left to the right */
+    right: 50px;
+
+    /* !we can also move the element out of its parent */
+    /* to avoid this we can use overflow property to parent */
+    /* hidden will hide the element if it steps out of its parrent */
+    
+}

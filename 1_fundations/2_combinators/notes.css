@@ -1,0 +1,30 @@
+/* combinator types */
+
+    /* Adjecent sibling */
+    div + p {
+        background: inherit;
+    }
+
+    /* all elements that directly fallow ot podtponr each other */
+        /* elements have to share same parent */
+        /* second element has to be right after first */
+
+    /* General sibling */
+        /* targets all siblings, does not matter if this is directly after each other */
+    div ~ p {
+        background: inherit;
+    }
+
+    /* Child */
+        /* any paragraph that is direct child of this one */
+        /* nested paragraphs won't be targeted */
+        /* as many paragraphs as there are in this div will get targeted */
+    div > p {
+        background: inherit;
+    }
+
+    /* Descendant */
+        /* Any child of this element will get targeted, does not matter if its direct child or it is not */
+    div p {
+        background: inherit;
+    }

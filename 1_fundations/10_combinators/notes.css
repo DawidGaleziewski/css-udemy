@@ -1,0 +1,11 @@
+/* Pseudo classes and & pseudo elements */
+    /* Pseudo class defines the style of a special state of an element */
+    .class:active{
+        color: black
+    }
+
+    /* pseudo alements define style of a specyfic PART of an element */
+    p::first-letter {
+        color: black;
+    }
+    

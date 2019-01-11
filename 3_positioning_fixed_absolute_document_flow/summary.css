@@ -1,0 +1,29 @@
+/* #1 The position property
+- static(default)
+-fixed
+-absolute
+-relative
+-sticky (not well supported by browsers)
+ 
+Some position values will take the element out of document flow
+
+using top, bottom, left, right is will be allowed once other position property is used than default
+*/
+
+/* #2 Positioning context
+defines the anchor point for positioning change
+-fixed - viewport
+-absolute - html or nearest relative positioned parent
+-relative - element itself
+-sticky - viewport*/
+
+/* #3 Z-index
+changes the default element positioning on z-axis
+only allowed if POSITION property is applied
+-largest value element is on top*/
+
+/* #4 Stacking context
+Created after applying fixed/sticky/absolute/relative
+Defines stacking behaviour of child elements
+Child cannot be higher than other parrent element if its parrent is lower
+ */

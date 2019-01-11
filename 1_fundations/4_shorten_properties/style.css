@@ -1,0 +1,49 @@
+
+/* Body also has a margin which is set by default */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+}
+
+/* h1 has also default margin */
+h1 {
+ color: white;
+ font-family: 'Anton', sans-serif;
+}
+
+/* Every element in css is processed as box */
+    /* this box can be seen in chrome dev tools */
+    /* elements of this box are
+     1. Content
+     2. Padding
+     3. Border
+     4. Margin*/
+
+#product-overview{
+    background: #ff1b68;
+    padding: 20px;
+    border: 5px black solid;
+    margin: 20px;
+}
+
+.section-title {
+    
+    font-family: inherit; 
+    color: #2ddf5c;
+}
+
+
+#product-overview h1 {
+    font-family: 'Anton', sans-serif;
+}
+
+/* Margin colapse -
+ if there are two margins they will collapse to one
+
+  This is why it is good to use eaither margin-top or margin-bottom*/
+
+  /* Often problematic:
+   -bigger one will win 
+    - Child margin will affect its parent
+    - If there is element with no padding and content 
+    those margins will collapse into one and biggest will win*/

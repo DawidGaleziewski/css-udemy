@@ -1,0 +1,28 @@
+
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+ color: white;
+ font-family: 'Anton', sans-serif;
+}
+
+#product-overview{
+    background: #ff1b68;
+}
+
+.section-title {
+    /* inherit is used to put inherit styles on top of specificity */
+    font-family: inherit; 
+    color: #2ddf5c;
+}
+
+/* combinator allows us to use multiple combinators to be more precise */
+/* this reeads as "any h1 element inside product-overview id" */
+/* it does not need to be a direct child */
+/* this also creates a higher specificity */
+#product-overview h1 {
+    font-family: 'Anton', sans-serif;
+}

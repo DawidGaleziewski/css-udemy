@@ -1,0 +1,47 @@
+.main__plan {
+   background: #C9F7D9;
+   border: 3px solid #18492F;
+   margin-top: 20px;
+   width: 800px;
+   padding: 20px;
+}
+
+.main__plan:hover,
+.main__plan:active{
+    border: 3px solid  #E0675D;
+}
+
+.main__plan--free {
+    background: #E5F7EC;
+    margin-left: 50px;
+}
+
+.main__plan--premium{
+    background: #18492F;
+}
+
+
+
+.main__plan > a {
+    color: black;
+    text-decoration: none;
+}
+
+.main__plan__title {
+    color:black;
+}
+
+.main__plan--premium .main__plan__title {
+    color: white;
+}
+
+
+.main__plan__slogan {
+    color: #7D857E;
+}
+
+.main__plan__description {
+    background: white;
+    padding: 10px;
+    border: 1px  #18492F solid;
+}

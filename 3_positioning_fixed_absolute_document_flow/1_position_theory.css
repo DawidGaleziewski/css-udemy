@@ -1,0 +1,11 @@
+/* By default document uses value
+position :static;
+Which is normal html flow
+
+Position values:
+-static -> Default
+-absolute
+-relative
+-fixed
+-sticky
+ */

@@ -1,0 +1,25 @@
+/* target multiple tags with same class */
+
+/* This is called chaining selectors */
+h1.some-class {
+    background: red;
+}
+
+/* !When use class and when to use ID */
+
+/* ID: 
+-only used once per page
+-can be used for linking
+-it is not good idea to use it only for styling, better use class
+
+*/
+
+/* CLASS:
+
+    -re-usable
+    -mark for styling purpose only (except js query)
+    -strongly connected to CSS
+    - using them is almost never wrong
+    -most used selector type
+
+*/

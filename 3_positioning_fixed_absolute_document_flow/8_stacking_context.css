@@ -1,0 +1,5 @@
+/* Elements that are children cannot go higher than
+the elements that are on the same or higher position than the parrent
+i.e if there are two divs with z-index 100.
+And children of one of those has z-index of 400
+it wont get higher than any of those divs */

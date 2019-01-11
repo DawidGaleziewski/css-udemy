@@ -1,0 +1,59 @@
+
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+
+    /* this will still get overwriten as block level elements will overwite inherited style
+     !Below wont work */
+    box-sizing: border-box;
+}
+
+* {
+    /* this is rare instance when we want to target all elements with higher priority */
+    box-sizing: border-box;
+}
+
+h1 {
+ color: white;
+ font-family: 'Anton', sans-serif;
+}
+
+
+
+#product-overview{
+    background: #ff1b68;
+    /* block level elements will always take 100% width by default */
+        /* so we need to change the height of the parent to be absolute. Otherwise it wont take effect
+        as any element is only as tall as it needs to be */
+    width: 100%;
+
+    /* 100% height refers to 100% of PARENT, not the whole page */
+    /* therefore % for height is only usefull if parent has absolute height value like 600px */
+    height: 520px;
+
+    /* By adding width and height we increase the size of the content box (first one from the middle in dev toools) */
+        /* by this if our width is 100% and we add padding and margin it will overflow and be bigger than the page */
+        /* !!Padding and border are not parts of width and height */
+
+    /* Every element size is calculated using box-sizing property */
+        /* content-box is default */
+    box-sizing: content-box; 
+        /* border-box inculdes padding and border in our sizing 
+          !it will still not include margin!*/
+        /* this is so common that often you will overwrite all your elements in the beggining weith border-box */
+    box-sizing: border-box;
+
+    padding: 10px;
+    }
+
+.section-title {
+    
+    font-family: inherit; 
+    color: #2ddf5c;
+}
+
+
+#product-overview h1 {
+    font-family: 'Anton', sans-serif;
+}

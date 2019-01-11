@@ -1,0 +1,99 @@
+main {
+    padding-top: 32px;
+}
+
+.main__plan {
+   background: #C9F7D9;
+   border: 3px solid #0e4f1f;
+
+   /* I have not noticed left border is missing here */
+   border-left: none;  
+   margin-top: 20px;
+
+   /* author used % I have used pixels for this */
+   width: 80%;
+}
+
+.main__plan:hover,
+.main__plan:active{
+    border: 3px solid  #E0675D;
+
+    /* author addded box-shadow. I need to practice this */
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+#main__plan_plus{
+    background: rgba(213, 255, 220, 0.95)
+}
+
+
+/* I used class. In this case it is better to use id */
+#main__plan--free {
+    border-right: none;
+    border-left:3px solid #0e4f1f;
+
+    /* author used rgba for this adding transparency */
+    background: rgba(234, 252, 237, 0.95);
+
+
+    /* Floats are not used so often now */
+        /* they are replaced by flexbox in many cases, but are still ok to position some elements diffrently in document flow */
+        /* float takes document OUT of the document flow */
+        /* it is good when we need the text to flow around the image,
+        but it will cause some problems with block level elements as they will get pushed on each other */
+    float: right;
+    /* to make this behave as we want it we need to hack it a bit fooling other elements to not respect previous floating */
+}
+
+.clearfix {
+    /* this is the hac that will clear floats on both side of this element */
+    clear: both;
+    /* elements comming after this element won't respect previous elemnt floats */
+
+    /* it is till good for positioning elements like text floating arround image */
+}
+
+#main__plan--premium{
+    background: #18492F;
+}
+
+
+
+.main__plan > a {
+    /* I used the default black, author set color to inherit to use page default */
+    color: inherit;
+    text-decoration: none;
+
+    /* I did not know about this!
+    Authore set this up to bloc in order for the a tag to take all available section 
+    Thanks tot his whole container will be clickable*/
+    display: block;
+
+    /* Author added padding to the child, I added it to the parent (.main__plan) */
+    padding: 32px;
+}
+
+.main__plan__title {
+    color:black;
+}
+
+#main__plan--premium .main__plan__title {
+    color: white;
+}
+
+#main__plan--premium .main__plan__slogan {
+    color: #bbb;
+}
+
+
+.main__plan__slogan {
+    color: #7D857E;
+}
+
+.main__plan__description {
+    background: white;
+    /* Author mostly uses font sizes or they multiplications i.e 16px/32px */
+    padding: 16px;
+    font-size: 20px;
+    border: 1px  #18492F solid;
+}

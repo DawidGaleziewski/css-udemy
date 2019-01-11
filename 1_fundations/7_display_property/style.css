@@ -1,0 +1,109 @@
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+}
+
+
+
+h1 {
+ color: white;
+ font-family: 'Anton', sans-serif;
+}
+
+
+
+#product-overview{
+    background: #ff1b68;
+    width: 100%;
+    height: 520px;
+    box-sizing: content-box; 
+    box-sizing: border-box;
+    padding: 10px;
+    }
+
+.section-title {
+    
+    font-family: inherit; 
+    color: #2ddf5c;
+}
+
+
+#product-overview h1 {
+    font-family: 'Anton', sans-serif;
+}
+
+
+.main-header{
+    background: #2ddf5c;
+    padding: 8px 6px;
+    width: 100%;
+}
+
+/* display property allows us to change behaviour to:
+-block - for example li - it takes full width (- margin and padding)
+-inline - anchor tags - two inline elements will render in the same line
+-inline-block
+-none */
+
+/* anchor tags are by default inline elements
+if we set them to block they will be positioned under each other */
+a {
+    display: block;
+}
+
+a:nth-of-type(2) {
+    /* this will remove element from page, but still can be accessed by js from DOM */
+    /* used often with js */
+    display:none;
+    /* visibility: hiddent; will hide element but keep its place */
+
+}
+
+
+/* change the way li behaves */
+.main-nav__item {
+    /* this is very usefull
+     those elements will go next to each other but will still behave like bloc elements so we can set their margin and height */
+
+    display: inline-block;
+}
+
+header > div {
+    display: inline-block;
+}
+
+.main-nav{
+    /* Inline elemtns can be threated as text so we can use tex-align on them */
+    display: inline-block;
+    text-align: right;
+
+    /* if we set up 100% this will be at new line as it will push other element out */
+    /* we need to subtract the width of the div */
+     /* !This still won't work due to way inline-block works
+        THIS IS DUE to white space in html code between div and nav elements */
+    width: calc(100% - 54px)
+}
+
+/* target ul to remove its default margin and padding*/
+.main-nav__items{
+    margin: 0;
+    padding: 0;
+
+    /* remove the bulletpoints */
+    list-style:none;
+}
+
+/* for display: inline those elements are next to each other but when we add padding it will be applied to sides and not top and bottom!  */
+
+.no-such-class{
+    display: inline;
+}
+
+
+

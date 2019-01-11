@@ -1,0 +1,55 @@
+    /* top, bottom, left, right position properties
+    How those will behave will change depanding on position value applied 
+    
+    -static (default) - none of those will work
+    -fixed - 
+        #fixed causes element to be taken out of document flow, similar to float
+        #fixed elements will beheve like inline block elements. You can apply it to both inline and block level element
+        #top, bottom, right, left proporties will depend on viewport (field of view on browser)
+        #if we use top:0 it will always be sticked to top of our viewport
+    */
+
+html {
+    background: #b3b3b3;
+    padding: 15px;
+    border: 5px solid white;
+    margin: 15px;
+    height: 2000px;
+}
+
+body {
+    background: #fa923f;
+    padding: 20px;
+    border: 5px solid black;
+    margin: 0;
+  }
+  
+.parent {
+    background: white;
+    padding: 20px;
+    border: 5px solid black;
+    margin: 0;
+  }
+  
+.parent div {
+    background: rgb(105, 105, 109);
+    color: white;
+    padding: 10px;
+    border: 5px solid black;
+    margin: 10px;
+
+
+}
+
+/* creating sticky nav */
+.parent .child-1 {
+    /* ps as we use 100% box sizing will be needed if we do not want the margin to be cut off from the page */
+    box-sizing: border-box;
+    position: fixed;
+    width: 100%;
+    left: 0px;
+    top: 0px;
+    margin: 0px;
+
+
+}
