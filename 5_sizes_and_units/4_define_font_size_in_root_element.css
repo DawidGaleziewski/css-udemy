@@ -1,0 +1,6 @@
+/* we can affect the default size of the text on the browser */
+/* normally the font-size we do not define is defined by the browser settings itself */
+/* we can modify this by applying the font size to root element */
+html {
+    font-size: 75%;
+}

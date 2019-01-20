@@ -1,0 +1,166 @@
+/* 
+#1 background-size
+#2 background positioning
+#3 origin/clip/attachment proporties
+#4 bacground shorthand
+#5 styling images
+#6image layout?
+#7 linear gradients
+# gradients!!! forgot this?
+#9 stacking multiple gradients
+#10filters
+#11 svg basic
+#12 read on aligning to basline element:
+https://www.w3.org/TR/CSS21/visudet.html#propdef-vertical-align
+*/
+
+/*############ 1 background-size ############*/
+https://codepen.io/dawidgaleziewski/pen/NeQrJa
+
+/* 
+-by default when we add picture we will see top left corner
+-bacground is shorten
+-when using background-image and background-color the color will be behind image
+
+###defined values
+-background-size has two values width and height.
+-if we set only first value it will set width to auto:
+background-size: 100px auto;
+-when using 100% it will take whole container, it will cropp extra part of image
+
+###keywords:
+-cover- same as 100% but detects which paramether is more important:
+    -for landscape - width 100%
+    - portrait - height 100%
+    -zooms in if image is smaller than container
+
+-contain- will make sure whole picture is visible. Does not care about the white spaces
+
+
+###background-repeat
+by default image will repeat if needed more space
+we can modify this behavoiour
+-background-repeat: no-repeat - does not releat
+-background-repeat: repeat-x - repeats image on x axis, same can be done for y axis
+*/
+
+
+/*############ 2 background-position ############*/
+https://codepen.io/dawidgaleziewski/pen/BvXWvP
+/* background-position 
+PX
+-first argument moves picture by amount added - it says how fair away picture should be from this part of container
+- second argument is from the top
+
+%- how much of the part on this side should be cropped
+If 100px are being cropped, and we set 10% on the top, only 10 px will be taken from top which meens 90px remaining will be taken from the bottom
+if we set this to 100% on top, alll cropped space will be taken from the top
+0% - it will be perfectly alligned 
+default used is 50%!
+
+
+keywords - top - left - right - bottom - center
+- no cropping will be done to that side
+- center crops 50%/50%
+
+*/
+
+
+/* ############3 origin/clip/attachment proporties############ */
+/* 
+#a) background-origin:
+https://codepen.io/dawidgaleziewski/pen/ZVgJJZ
+sets the origin of the picture/where the picture starts
+It starts from upper left corner of eaither: margin, padding, content
+*/
+
+     background-origin: content-box ;
+     /* 
+     -Border-box - starts from upper left corner of the border
+     -Padding-box- starts from upper right corner of the padding
+     -Content-box - startf from upper right corner of content
+
+ 
+     !those affect left and right and not top and bottom (in this example) as those are cropped
+         This is controled by other property - background-clip
+         */
+
+/* # b) background-clip 
+Specify how far the background should extend within an element:
+-border-box- default - extands to the edges of border
+-padding-box - extands to the edges of padding
+-content-box - extands to the edges of content
+*/
+
+
+/* #c) background-attachment*/
+/* The background-attachment property sets whether a background image scrolls with the rest of the page, or is fixed.
+by ussing background-attachment: fixed we can get a cool effect where the image will not scroll with the rest of page
+
+Scroll is default value  and the image will scroll with page
+https://codepen.io/dawidgaleziewski/pen/bOzNvw
+
+also is connected sith overflow property.
+if we use overflow: hidden it will stick to one conntent and not move
+*/
+
+/* ############4 background shorthand############ */
+https://codepen.io/dawidgaleziewski/pen/OrKdjd
+
+#product-overview {    
+    /* Putting all values in shorten */
+        /* position comes first, it is seperated from size by slash */
+        /* next is repeat */
+        /* For origin anc clip - if we put one value (i.eborder-box) it will be set for both of them.
+            If we have two values firs one is origin and the second is clip*/
+        /* last is background attachment */
+    background: url("freedom.jpg") left 10% bottom 20%/cover no-repeat border-box padding-box fixed;
+    /* background-image: url("freedom.jpg");
+    background-position: left 10% bottom 20%;
+    background-size: cover; */
+    /* background-repeat: no-repeat;
+    background-origin: content-box ; */
+    /* background-clip: content-box;
+    background-attachment: fixed; */
+
+
+    /* border: 5px dashed red; */
+    width: 100%;
+    height: 528px;
+    padding: 10px;
+    margin-top: 43px;
+    position: relative;
+}
+
+
+/* ############5 image styling############ */
+
+/* Using images depends if they are nested in inline element or block element */
+/* there is not so much we can do to style normal image
+therefore better to use background-image if possible
+ Only issue is that background image is taken out of document flow*/
+ .main-header__brand {
+    color: #0e4f1f;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 22px;
+
+    /* style the image */
+    /*! if we change the height of container the img will not be affected */
+    width: 22px;
+
+    /* if we add inline-block than 100% height in img selector will work
+     Image will be as big as the container
+     previously this was not working as image was a inline element */
+    display: inline-block;
+}
+
+.main-header__brand >img {
+    /* we can fix this problem by changing height of picture itself */
+    /* height: 22px; */
+
+ 
+    width: 100%;
+}
+
+/* ############7 linear gradients############ */

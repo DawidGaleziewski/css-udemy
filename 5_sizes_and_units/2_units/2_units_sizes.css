@@ -1,0 +1,126 @@
+/* Units available
+pixels - px
+percentages - % 
+root em - rem - refers to font size
+em - refers to font size
+vieport height - vh
+viewport width - vw
+*/
+
+ /* 3 questions to ask about those
+1. Which properties can I use in connection with these units?
+2. How is the size calculated?
+3. What is the right unit to choose? 
+*/
+
+/* 
+#On box model:
+
+-content
+-padding
+-border
+-margin
+
+-width
+-height
+
+-top
+-bottom
+ */
+
+/* ############################################## */
+ /* How is size calculated? 4 diffrent categories */
+
+ /* -Absolute lengths - i.e px will ignore user settings in the browser */
+ /* -Viewport lenghts - adjust the size of element to current viewport
+ i.e vh, vw, vmin, vmax*/
+
+ /* Font-relative lengths - adjust to default font size
+ i.e rem, em */
+
+ /* % - special case
+    calculated on containing block
+ */
+
+
+/* ######################1st rule - position fix and % ######################## */
+/*
+  -Position i.e position: fixed influance the way units behave
+  -Size is calculated in referance to containing block (parent element)
+  - If parent has 100px width and child 10% than  child will have 10px.
+  - If we apply position: fixed the containing block will be the viewport!
+  - for exmple navbar in the projects uses 100% width and has position fixed.
+  its size will be refering to viewport. If we streatch the viewport it will resize
+  
+  -Therefore whenever whe have position: fixed + % to containing block is the viewport
+ */
+
+ .main-header {
+   width: 100%;
+   position: fixed;
+   top: 0;
+   left: 0;
+   background: #2ddf5c;
+   padding: 8px 16px;
+   z-index: 1;
+}
+
+
+/* ######################2nd rule - position absolute and %######################## */
+/* containing block is ancesotor 
+-it is closes ancestor that is not position: static (that is has absolute, relative, fixed or sticky applied)
+!!Important: it refers to ancestors content + padding */
+/* Good example is slogan on main page in picture
+Slogan has position absolute, container has relative
+(main.css file)
+ */
+
+ /* Position relative */
+ <section id="product-overview"> 
+
+ /* position absolute */
+ <h1>Get the freedom you deserve.</h1>
+
+ #product-overview h1 {
+   color: white;
+   font-family: "Anton", sans-serif;
+   position: absolute;
+   bottom: 5%;
+   left: 3%;
+ 
+   /* This will increase the width of the slogan to while ancestor
+   (use devtools to see actual width) */
+   /* if parrent has 900px it will also have 900%, however it will overflow out of viewport
+    
+   this size is content + padding*/
+   /* if we change width of parent of half this value will aslo cut in half */
+   width: 100%;
+
+   /* we will see the gap on left due to fact we have bottom/left properties moving this element */
+ }
+
+
+ /* ######################3rd rule - position static/relative and %######################## */
+ /* For position static and position relative the referance will be ancestors content 
+ (!wihout padding!) */
+ /* Ancestor in this case is the closes ancestor that is block level element 
+ i.e customers page in project*/
+ <div class="testimonial__image-container">
+      <img src="../images/customer-1.jpg" alt="Mike Statham - Customer" class="testimonial__image">
+   </div>
+
+
+     /* Conainer of the image */
+  .testimonial__image-container {
+    /* this % takes testimonal ancestor width */
+    width: 65%;
+    display: inline-block;
+    vertical-align: middle;
+    box-shadow: 3px 3px 5px 3px rgba(0,0,0,0.3);
+  }
+
+  .testimonial__image {
+    /* when change to 100% picture will take whole viewport width */
+    width: 100%;
+    vertical-align: top;
+  }

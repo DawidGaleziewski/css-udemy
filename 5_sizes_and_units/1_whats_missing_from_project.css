@@ -1,0 +1,3 @@
+/* If font-size units are missing for some elements those will be decided by the browser
+This is not ideal as we want to have diffrent font sizes and keep difference between them */
+/*  for example if our pictures scale using % and font uses px than the general look of page may change when changing window size */

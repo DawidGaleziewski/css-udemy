@@ -1,0 +1,346 @@
+/*
+ []#0 Code validators - validatre my code online
+  [x]Add lang to html tag
+  [x] Do not use button in a tag
+  [x] script does not need type if using js
+  [x] add alt to all img tags
+
+ [x]#1 Classes/selectors
+    [x]-try using more classes
+    [reject]-use id NOT js to scroll
+    [x]- check if you can use a.active type selectors
+    [x]- check if there is any need for !important
+    [x]-check if there is any need for :not() sudo class
+
+ [x]#4 browser support
+    [x]Check https://caniuse.com/ for used proporties in document
+    min-height
+    outline
+    text-transform
+    letter-spacing
+    cursor
+    opacity
+
+
+ [x]#5 outline
+    [x]-remove default outline on buttons and a tags
+    [reject]-think about adding custom outline if needed
+
+ [x]#6 subpages
+    [x]-move css that is used universally (like footer/ buttons etc) to seperate .css file
+    [x]- think about using id on body method for subpages
+
+ []#7 floats
+    [x]- check if floats are used in project
+    [x]- think where adding a float is a good idea
+         -> it is good when we need the text to flow around the image,
+         No  need to embeed text on app
+
+ []#8 check if any margins are disrupted by children (i.e ul)
+
+ [x] #9 check if html makes sense?
+    [x]-better to use nav than div where its needed
+
+  [x] 10 move all js from  html to files
+*/
+
+/* 
+#0 Code validators - validatre your code online
+#1 Classes/selectors
+    -id should not use only for styling, it is better to use class as its only for  styling
+-id can also be used as link on page
+ */
+
+ /* ID: 
+-only used once per page
+-can be used for linking
+-it is NOT good idea to use it only for styling, better use class, even if used once
+
+*/
+
+/* CLASS:
+
+    -re-usable
+    -mark for styling purpose only (except js query)
+    -strongly connected to CSS
+    - using them is almost never wrong
+    -most used selector type
+
+*/
+
+ <a href="#intro" class="active">Intro</a>
+
+ /* We can target tags with specyfic class */
+ a.active{
+    background: #521751;
+}
+
+/* If elements have two classes the one that is lower in the .css document will win */
+.main-section {
+    height: 800px;
+    border: 1px solid #ccc;
+    padding: 16px;
+}
+
+.highlighted {
+     border: 2px solid #fa923f;
+}
+
+/* #2 !important
+-!important ignores the specyficity in css
+   Overwrites specifity and all other selectors 
+- It should be used rarly as it will mess up the code
+
+ */
+
+
+ /* example of !important use. This will overwrite the .highlighted class */
+.main-section {
+    height: 800px;
+    /* This will target only one property */
+    border: 1px solid #ccc !important;
+    padding: 16px;
+}
+
+.highlighted {
+     border: 2px solid #fa923f;
+}
+
+/* #3 not() sudoclass */
+
+/* :not sudoclass */
+/* select a tags that do NOT have .active sudoclass */
+/* a :not would slect any element nested in a tag that do not have active tag */
+a:not(.active){
+    color: blue;
+}
+
+/* select any element which is NOT a p tag */
+:not(p){
+    color: blue;
+}
+
+/* #4 browser support
+    https://caniuse.com/
+    caniuse will show properties support on diffrent browser
+*/
+
+
+/* #5 outline */
+
+/* outline is a blue glow on button after click
+ it can be seen in developer tools under :hov -> focus state 
+ -active - it is applied after user clicks it or uses tab
+ 
+ -Outline is similar to border but it is not part of box model
+ - It is applied after the border
+ - It can be styled by outline: property
+ - we can target it by :focus sudo selector
+ */
+
+ .button__chose-plan:focus{
+    /* Delete outline */
+    outline: none;
+}
+
+/* #6 subpages */
+/* move css that is used universally (like footer/ buttons etc) to seperate .css file to not load all css at beggining
+ */
+
+ <head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title>uHost</title>
+ <link rel="shortcut icon" href="favicon.png">
+ <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+
+ /* <!-- we want the general styles to be always on top -->
+ <!-- this way we can add more particular styles more specyfic to the page --> */
+ <link rel="stylesheet" href="shared.css">
+ <link rel="stylesheet" href="main.css">
+</head>
+
+/* #7 floats */
+
+/* I used class. In this case it is better to use id */
+.float{
+
+
+    /* Floats are not used so often now */
+        /* they are replaced by flexbox in many cases, but are still ok to position some elements diffrently in document flow */
+        /* float takes document OUT of the document flow */
+        /* it is good when we need the text to flow around the image,
+        but it will cause some problems with block level elements as they will get pushed on each other */
+    float: right;
+    /* to make this behave as we want it we need to hack it a bit fooling other elements to not respect previous floating */
+}
+
+.clearfix {
+    /* this is the hac that will clear floats on both side of this element */
+    clear: both;
+    /* elements comming after this element won't respect previous elemnt floats */
+
+    /* it is till good for positioning elements like text floating arround image */
+}
+
+/* ###Other things I did not know */
+
+/* plans */
+.main__plans__article {
+    background-color: #d5ffdc;
+    text-align: center;
+    display: inline-block;
+    padding: 16px;
+    margin: 8px;
+    width: 30%;
+    border-radius: 8px;
+
+    /* didnt know about this 
+    This will make middle the same for all 3 elements inside*/
+    vertical-align: middle;
+}
+
+
+.main__plans__article__features{
+    list-style: none;
+
+    /*I didnt know to get rid of default margin and padding of UL  */
+    /* it is added by child items to parrent!!! */
+    margin: 0;
+    padding: 0;
+}
+
+
+/* add another class to div in midle changing only some of its proporties */
+.main__plans__article--highlighted{
+    background: #19b84c;
+    color: white;
+    /* RGBA - last property is transparency of shadow */
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
+
+}
+
+
+.button__chose-plan{
+    background-color: #0e4f1f;
+    color: white;
+
+    /* button has text set by default, it needs to be changed */
+    /* we can change it by using inherit */
+    /* font is shorten ie font-family */
+    font: inherit;
+    font-weight: bold;
+    
+    border-radius: 8px;
+    padding: 8px;
+    border: 1.5px solid #0e4f1f;
+    cursor: pointer;
+}
+
+
+/* I did not know it is good idea to add :active sudo class on when we hold the clicked button */
+.button__chose-plan:hover,
+.button__chose-plan:active
+ {
+    background: white;
+    color: #0e4f1f;
+}
+
+/* !use more classes in project */
+
+
+ /* I did not think to target the ul */
+ /* It seems the author is using more classes then I do */
+ .key-feature__list{
+    /* I have applied this to indyvidual items, author applied to the whole list */
+   list-style :none;
+
+   /* !!I forgot to remove default margin and padding. This has center those elements better */
+   margin:0;
+   padding: 0;
+
+      /* author has aligned the list, I alligned all in main container for this sections */
+      text-align: center;
+}
+
+
+.key-feature__list__item {
+    margin-right: 20px;
+    display: inline-block;
+
+    /* Author has put 30% on each li to center those elements better
+    I have forgot about this feature */
+     /* 33% would be to much and would add a line break! */
+    width: 30%;
+
+    /* I have not noticed this issue! Text was pushing elements down depanding on line break
+     Author fixed it by aligning to top mentioned this is not perfect solution */
+    vertical-align: top;
+    
+
+
+ }
+
+
+ /* unordered list will add margin as child can affect parent regarding its margin! */
+.main-footer {
+    background: black;
+    padding: 32px;
+    margin-top: 48px;
+}
+
+/* in html we can go one level up by  ../  */
+
+
+.main__plan:hover,
+.main__plan:active{
+    border: 3px solid  #E0675D;
+
+    /* author addded box-shadow. I need to practice this */
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+
+.main__plan > a {
+    /* I used the default black, author set color to inherit to use page default */
+    color: inherit;
+    text-decoration: none;
+
+    /* I did not know about this!
+    Authore set this up to bloc in order for the a tag to take all available section 
+    Thanks tot his whole container will be clickable*/
+    display: block;
+
+    /* Author added padding to the child, I added it to the parent (.main__plan) */
+    padding: 32px;
+}
+
+
+.main__plan__description {
+    background: white;
+    /* Author mostly uses font sizes or they multiplications i.e 16px/32px */
+    padding: 16px;
+    font-size: 20px;
+    border: 1px  #18492F solid;
+}
+
+
+/* unordered list will add margin as child can affect parent regarding its margin! */
+.main-footer {
+    background: black;
+    padding: 32px;
+    margin-top: 48px;
+}
+
+
+/* align divs horizontaly */
+.main__plans_list {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    /* IMPORTANT */
+    /* still 3 divs are center more to right, we can recognize this by comparing this to top text
+this is because the element those are in is centerd and not the elements themselves */
+
+}

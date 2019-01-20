@@ -1,0 +1,25 @@
+/* background is shorthand, some properties:
+ */
+
+ .test {
+     background-image: url("./media/test.png");
+     background-color: red;
+     /* Allows to set initial position depending on bacground position layer */
+     background-position: left 50%  bottom 50%;
+
+     /* size of the image */
+     background-size: cover;
+
+     /* How image is repeated */
+     background-repeat: no-repeat;
+
+     /* Allows us to set background positioning area */
+     background-origin: ?;
+
+     /* Does the image extands below potential border */
+     background-clip: ?;
+
+     /* How scrolling will behave inside that image */
+     background-attachment: ?;
+
+ }

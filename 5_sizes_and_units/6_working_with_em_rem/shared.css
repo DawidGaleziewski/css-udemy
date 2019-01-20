@@ -1,0 +1,176 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    /* fixing height:0 problem */
+    height: 100%;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+
+    /* fixing height:0 problem */
+    height: 100%;
+}
+
+/* in the end we will use position fix as this is best practice
+but this is good ocassion to observe anomaly when using relative/static */
+
+/* problem here is that width will be taken from containing block (body)
+but height is 0! */
+/* height is only defined by the content of the body, 
+it does not suffice to get the information needed
+We can fix it by adding 100% to html and 100% to body
+ */
+
+.backdrop {
+    /* whole issue is caused by position relative.
+    If we change it to absolute this will not be the case.
+
+    /* position: relative; */
+    /* But the backdrop will not stick to viewport and we will have gap at the top
+    Gap is due to margin collapsing
+    margin is taken from testimonial class.
+    
+    Reason for absolute working with 100% in this case is that it uses nearest ancestor with property static applied
+    or if this is not the case it leads to same behavior as fixed - % will refer to viewport
+      */
+    
+    /* fixed will solve the issue with height: 0 as it uses viewport height and not ancestor */
+    position: fixed;
+    /* only issue it has is margin collapsing, but we can fix this by top/bottom properties */
+    top: 0;
+    left: 0;
+
+    display: none;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0, 0,0.5)
+}
+
+.main-header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #2ddf5c;
+    padding: 8px 16px;
+    z-index: 1;
+}
+
+.main-header > div {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.main-header__brand {
+    color: #0e4f1f;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 22px;
+    height: 22px;
+    /* width: 20px; */
+    display: inline-block;
+}
+
+.main-header__brand img {
+    height: 100%;
+    /* width: 100%; */
+}
+
+.main-nav {
+    display: inline-block;
+    text-align: right;
+    width: calc(100% - 74px);
+    vertical-align: middle;
+}
+
+.main-nav__items {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.main-nav__item {
+    display: inline-block;
+    margin: 0 16px;
+}
+
+.main-nav__item a {
+    text-decoration: none;
+    color: #0e4f1f;
+    font-weight: bold;
+    padding: 3px 0;
+}
+
+.main-nav__item a:hover,
+.main-nav__item a:active {
+    color: white;
+    border-bottom: 5px solid white;
+}
+
+.main-nav__item--cta a {
+    color: white;
+    background: #ff1b68;
+    padding: 8px 16px;
+    border-radius: 8px;
+}
+
+.main-nav__item--cta a:hover,
+.main-nav__item--cta a:active {
+    color: #ff1b68;
+    background: white;
+    border: none;
+}
+
+.main-footer {
+    background: black;
+    padding: 32px;
+    margin-top: 48px;
+}
+
+.main-footer__links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.main-footer__link {
+    display: inline-block;
+    margin: 0 16px;
+}
+
+.main-footer__link a {
+    color: white;
+    text-decoration: none;
+}
+
+.main-footer__link a:hover,
+.main-footer__link a:active {
+    color: #ccc;
+}
+
+.button {
+    background: #0e4f1f;
+    color: white;
+    font: inherit;
+    border: 1.5px solid #0e4f1f;
+    padding: 8px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.button:hover,
+.button:active {
+    background: white;
+    color: #0e4f1f;
+}
+
+.button:focus {
+    outline: none;
+}

@@ -1,3 +1,15 @@
+/* 
+   []#1 The position property
+    [x] Check if it was better to use inline block in some elemts
+    [x]Check if fixed is well designed
+    [x ]check if position absolute is good idea in any instances
+   [x]#2 Positioning context
+   [x]#3 Z-index
+   [x]#4 Stacking context
+   []#5 Overflow property
+*/
+
+
 /* #1 The position property
 - static(default)
 -fixed
@@ -9,6 +21,102 @@ Some position values will take the element out of document flow
 
 using top, bottom, left, right is will be allowed once other position property is used than default
 */
+      /* top, bottom, left, right position properties
+    How those will behave will change depanding on position value applied 
+    
+    -static (default) - none of those will work
+    -fixed - 
+        #fixed causes element to be taken out of document flow, similar to float
+        #fixed elements will beheve like inline block elements. You can apply it to both inline and block level element
+        #top, bottom, right, left proporties will depend on viewport (field of view on browser)
+        #if we use top:0 it will always be sticked to top of our viewport
+    */
+
+/* Styling fixed navigation */
+.main-header {
+    /* change applied by fixed */
+    position: fixed;
+
+    /* top and left are not needed unless we add margin to html or body */
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    background: #2ddf5c;
+    padding: 8px 16px;
+}
+
+/* adding a background image */
+.background{
+    background: url("plans-background.jpg");
+
+    /* we add fixed so that picture is taken out of document flow */
+    position: fixed;
+
+    /* thanks to fixed width and height will work in procentage without issue */
+    width: 100%;
+    height: 100%;
+}
+
+
+#main__plan_plus{
+    background: rgba(213, 255, 220, 0.95);
+
+    /* if we use absolute we will cras our document flow.
+    We can use position relative however to style absolute child
+    Therefore:
+    relative parent > absolute child */
+    /* relative will not take our element out of document flow */
+    position: relative;
+}
+
+/* position the badge */
+.main__plan__badge{
+    /* absolute positioning is defined on 2 cases:
+     a) if none of the parent has the positioning property applied then it will position to HTML
+     b) if any parent has the positioning property applied, the closest one will be the positioning context
+     Best to check this by using top: 0px; 
+*/
+}
+
+/* Overflow explained */
+.parent {
+    background: white;
+    padding: 20px;
+    border: 5px solid black;
+    margin: 0;
+
+    /* hide element if it steps out of parent */
+    overflow: hidden;
+
+    
+    position: relative;
+    /* the issue is if we use it on body it won't work as the overflow will be applied to html
+    However if we apply any overflow value to  html body will accept this value */
+    /*  By default overflow value is passed to html, unless it has overflow value already*/
+    /* this can be any value even overflow: auto */
+}
+
+
+/* if we add position: relative nothing changes visualy on page
+ */
+ .parent .child-1 {
+    position: relative;
+
+    /* one thing that changes is top and left are now functional
+    their point of referance is elements default position in the document flow */
+    /* positioning context is element itself */
+
+    /* element moves from  top to  down */
+    top: 160px;
+    /* element moves from the left to the right */
+    right: 50px;
+
+    /* !we can also move the element out of its parent */
+    /* to avoid this we can use overflow property to parent */
+    /* hidden will hide the element if it steps out of its parrent */
+    
+}
 
 /* #2 Positioning context
 defines the anchor point for positioning change
@@ -22,8 +130,42 @@ changes the default element positioning on z-axis
 only allowed if POSITION property is applied
 -largest value element is on top*/
 
+/* adding a background image */
+.background{
+    background: url("plans-background.jpg");
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    
+/* by default every elemt has z-index:auto applied
+auto = 0
+! z-index wont work for elements with position:static property (default one)
+ 0 is tarting point
+ If we want to position it above all elements we add 1,2,3 etc
+ If below we use -1, -2 , -3
+ 
+ ! If two elements have same z-index the order in html file will win*/
+
+    z-index: -1;
+}
+
+/* position the badge
+.main__plan__badge{
+    position: fixed;
+    top: 50px;
+    left: 400px;;
+    margin: 20px;
+} */
+
 /* #4 Stacking context
 Created after applying fixed/sticky/absolute/relative
 Defines stacking behaviour of child elements
 Child cannot be higher than other parrent element if its parrent is lower
  */
+
+
+ /* Elements that are children cannot go higher than
+the elements that are on the same or higher position than the parrent
+i.e if there are two divs with z-index 100.
+And children of one of those has z-index of 400
+it wont get higher than any of those divs */
