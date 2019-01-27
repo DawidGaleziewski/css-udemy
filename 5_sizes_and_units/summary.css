@@ -1,0 +1,139 @@
+/* 
+    [x] #1. Make sure font-size is not missing for any crucial element.
+        Otherwise it will be decided by browser
+    [x]#2. Make sure no font is using px, this will not allow user to zoom
+    [x]#3. How is size calculated?
+    [x]#4 percent calculation depends on containing block 
+        which changes depanding on its position
+    [x]#5 adding backdrop
+    [reject i used vw and vh]#6 height and % problem
+    [reject default seems to be fine]#7 changing root element:
+    [x]#8 min/max width
+    [x\used only rem]#9 rem and em
+    [x]#10 viewport units vh vw and vmin vmax
+    []#11 choosing the units
+*/
+
+
+/* 
+#1. Make sure font-size is not missing for any crucial element. Otherwise it will be decided by browser
+#2. Make sure no font is using px, this will not allow user to zoom
+#3. How is size calculated?
+
+    #absolute lenghts:
+        pixels - will ignore user settings in browser
+
+    #viewport-lenghts  adjust the size of element using current viewport
+
+    #font relative lenghts- adjusts to default font sieze:
+     -rem
+     -em
+
+    # % percent
+    - calculates depanding on containing block
+
+#4 percent calculation depends on containing block which changes depanding on its position
+        
+https://codepen.io/dawidgaleziewski/pen/VgazLW
+
+    #a) position fixed and %
+        -viewport is the containing block
+        - if vieweport is 100px and element has 10% it will have 10px width
+
+*/
+
+.element {
+    width: 100%;
+    position: fixed;
+ }
+
+ /* 
+    #b)position absolute
+    -containing block is closes ancestor that is not position static
+    -it refers to ancestor content + padding
+ */
+
+
+ /* #c) static/relative and %
+    referance will be parent without padding!
+  */
+
+  
+/* 
+    #5 adding backdrop:
+    -add on top of body: <div class="backdrop"></div>
+
+    #6 height and % problem
+/* problem here is that width will be taken from containing block (body)
+but height is 0! */
+/* height is only defined by the content of the body, 
+it does not suffice to get the information needed
+We can fix it by adding 100% to html and 100% to body
+ */
+
+
+ /* 
+    #7 changing root element:
+    /* we can affect the default size of the text on the browser */
+/* normally the font-size we do not define is defined by the browser settings itself */
+/* we can modify this by applying the font size to root element */
+
+
+/* 
+    #8 min/max width
+    https://codepen.io/dawidgaleziewski/pen/ZwWJRW
+    specify minimum and maximum width of the element
+    
+ */
+
+ /* 
+    #9 rem and em
+    https://codepen.io/dawidgaleziewski/pen/wNGqYb
+    -rem root em. It will calculate size using root (html). This is prefered way of applying size to fonts
+    -em - it will take size that this element is given and multiply it
+
+    -rem is easier to control as it will always refer to root element
+ 
+ */
+
+ /* 
+ 
+    #10 viewport units vh vw and vmin vmax
+    
+ */
+
+     /* number before vw is percent of viewport taken
+    therefore 80vw = 80% of viewport width */
+    /* width: 100vw;
+    height: 100vh; */
+
+    /* viewport takes % of the smaller viewport */
+    /* that is if width is smaller it is beeing taken under consideration
+    if height is smaller it is taken under consideration */
+    /* width: 80vmin; */
+
+    /* we also have vmax which works other way arround */
+
+    /* 
+    #11 choosing to chose
+#a) .font-size(root element)
+-% percent - change default font size, i.e 75%
+- nothing - we may rather specify size on diffrent elements and not the root
+
+#b) font-size in general:
+-rem - probably best, easy to read
+-em - mostly for children as it may get messy
+
+#c) paddin/margin 
+- rem
+
+#d) border:
+-px- border should not scale most of the time to i.e 50px
+
+#e) width/height
+-% - be aware of containing block and position property applied
+-vw/ vh - if we have a reason to relate it to viewport
+
+#f) top/bottom/left/right
+-% as we usually need relation to our containing element
+    */

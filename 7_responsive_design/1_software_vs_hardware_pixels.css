@@ -1,0 +1,22 @@
+/* 
+#1 by default the  browser will not know that the site should be displayed on the phone
+-it will squize all the info
+
+#2 hardware vs software pixels
+-when we chose mobile, ie iphone8, it will show width of phone is 375
+- however in devtools we can see it is 980px;
+-w3c absolute lengths - how absolute lenghts are calculated to pixels
+    - 1 inche is 96px;
+    -this causes problems as modern mobile phones have very high pixel density
+    - we can solve this by decreasing the number of pixels
+    -mydevice.io ! - for specyfic phone sizes
+        -css width is the same here as calculated on top of devtols
+        - this is dependant on pixel ratio
+    
+    !- this can be solved by adding viewport meta tag
+    !- in index.html in head section:
+*/
+
+/* thanks to this browser is able to recognize actual width of the smartphone*/
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+

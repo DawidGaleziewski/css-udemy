@@ -164,3 +164,125 @@ therefore better to use background-image if possible
 }
 
 /* ############7 linear gradients############ */
+
+#product-overview {   
+    /*replace the picture to gradient  */
+    /* gradients, both linear and radial are threated as images */
+   background: url("images/freedom.jpg") left 10% bottom 20%/cover no-repeat border-box padding-box fixed;
+   /* we add the gradient using linear-gradient() function*/
+   /* first argument is direction of the gradient */
+       /* for example (to right) 
+       ot (to left-bottom)
+       You cen ude degrees as well
+       (30deg)*/
+   /* next arguments are color 
+    you can add as many colors as you want
+    you can use also transparency and transition from color to transparency
+     linear-gradient( 180deg,red, transparent)
+
+   Normally every color is given its share to occupy, but this can be changed as well:
+   linear-gradient( 180deg,red, blue, green 70%);
+     */
+   background-image: linear-gradient( 180deg,red 70%, blue 80%);
+   width: 100%;
+   height: 528px;
+   padding: 10px;
+   margin-top: 43px;
+   position: relative;
+
+
+   /* ############8 radial gradient############ */
+   https://codepen.io/dawidgaleziewski/pen/roXXwb
+   /* used same way as linear by adding a function */
+   /* creates a circle in the middle */
+   /* you can add many colors as well */
+   /* you can use elipse which is default or circle */
+   /* you can use 'at' attribute to define where does the gradient starts */
+  /* size can be defined after shape */
+
+  /* there are usefull keywords like farthest-side/closest-side */
+   background-image: radial-gradient(circle 20px at 20% 50%, red, blue, green);
+
+}
+
+/* ############9 multiple backgrounds############ */
+https://codepen.io/dawidgaleziewski/pen/roXXwb
+/* Using multiple backgrounds */
+/* You can use multiple backgrounds but 
+only one color can be used and it will be the most bottom */
+
+#product-overview {   
+    /* adding color as a fallback */
+    /* adding also linear gradient (gradien tis threated as img so we can stack it with color) */
+    /* we seperate difrent background by coma */
+    background: linear-gradient(to top, rgba(80, 68,18, 0.6) 10%, transparent), 
+    url("images/freedom.jpg")  left 10% bottom 20%/cover no-repeat border-box padding-box fixed,
+     #ff1b68;
+
+    width: 100%;
+    height: 528px;
+    padding: 10px;
+    margin-top: 43px;
+    position: relative;
+}
+
+/*############10 filters############  */
+https://codepen.io/dawidgaleziewski/pen/KJPPqP
+
+.background {
+    background: url("../images/plans-background.jpg") center/cover;
+    /* filters help us modify the look of element and its content by adding effects like blur */
+    /* filters use functions */
+    filter: grayscale(40%) ;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: -1;
+}
+
+/* ##########11 briefly on svg############ */
+/* we can style a loot regarding svgs like colors of the part of the image, but this is more related to svgs than the  css */
+/* some manipulations we can do is stroke and fill */
+.key-feature__image {
+    background: #ffcede;
+    width: 128px;
+    height: 128px;
+    border: 2px solid #424242;
+    border-radius: 50%;
+    margin: auto;
+    padding: 20px;
+}
+/* #svg can be added directly in html */
+<section id="key-features">
+<h1 class="section-title">Many Good Reasons to Stick Around</h1>
+<ul class="key-feature__list">
+    <li class="key-feature">
+        <div class="key-feature__image">
+                <svg viewBox="0 0 512 512">
+                        <path style="fill:#F09B24;" d="M344,248h-32V112c0-4.418-3.582-8-8-8h-40c-4.418,0-8,3.582-8,8s3.582,8,8,8h32v128h-32  c-4.418,0-8,3.582-8,8s3.582,8,8,8h32v128h-32c-4.418,0-8,3.582-8,8s3.582,8,8,8h40c4.418,0,8-3.582,8-8V264h32c4.418,0,8-3.582,8-8  S348.418,248,344,248z"
+                        />
+                        <path style="fill:#8E9AA9;" d="M264,64H8c-4.418,0-8,3.582-8,8v80c0,4.418,3.582,8,8,8h256c4.418,0,8-3.582,8-8V72  C272,67.582,268.418,64,264,64z"
+                        />
+                        <path style="fill:#7C899B;" d="M24,144c-4.418,0-8-3.582-8-8V64H8c-4.418,0-8,3.582-8,8v80c0,4.418,3.582,8,8,8h256  c4.418,0,8-3.582,8-8v-8H24z"
+                        />
+                        <rect x="152" y="96" style="fill:#B8E3A8;" width="88" height="32" />
+                        <g>
+                            <polygon style="fill:#7EC97D;" points="152,96 152,128 166,128 198,96  " />
+                            <polygon style="fill:#7EC97D;" points="220,96 188,128 240,128 240,96  " />
+                        </g>
+                        <path style="fill:#56677E;" d="M240,136h-88c-4.418,0-8-3.582-8-8V96c0-4.418,3.582-8,8-8h88c4.418,0,8,3.582,8,8v32  C248,132.418,244.418,136,240,136z M160,120h72v-16h-72V120z"
+                        />
+                        <g>
+                            <path style="fill:#435670;" d="M32,136c-4.418,0-8-3.582-8-8V96c0-4.418,3.582-8,8-8s8,3.582,8,8v32C40,132.418,36.418,136,32,136z   "
+                            />
+                            <path style="fill:#435670;" d="M56,136c-4.418,0-8-3.582-8-8V96c0-4.418,3.582-8,8-8s8,3.582,8,8v32C64,132.418,60.418,136,56,136z   "
+                            />
+                            <path style="fill:#435670;" d="M80,136c-4.418,0-8-3.582-8-8V96c0-4.418,3.582-8,8-8s8,3.582,8,8v32C88,132.418,84.418,136,80,136z   "
+                            />
+                            <path style="fill:#435670;" d="M104,136c-4.418,0-8-3.582-8-8V96c0-4.418,3.582-8,8-8s8,3.582,8,8v32   C112,132.418,108.418,136,104,136z"
+                            />
+                            <path style="fill:#435670;" d="M128,105c-4.418,0-8-3.582-8-8v-1c0-4.418,3.582-8,8-8s8,3.582,8,8v1   C136,101.418,132.418,105,128,105z"
+                            />
+                            <path style="fill:#435670;" d="M128,136c-4.418,0-8-3.582-8-8v-1c0-4.418,3.582-8,8-8s8,3.582,8,8v1   C136,132.418,132.418,136,128,136z"
+                            />
+                        </g>

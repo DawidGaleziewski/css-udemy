@@ -1,0 +1,37 @@
+/* 
+###1. Viewport - without it we cannot implement mobile design!
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+#name="viewport" 
+ - meta tag is targeting the viewport
+
+#content="width=device-width
+-contents width should be equal to the screen size of our device
+
+#initial-scale=1.0
+-zoom level we have, 1.0 is default value, 1.5 would zoom in.
+
+# disable user scalling
+user-scalable=no
+- user cannot zoom in
+
+#maximum-scale=4.0
+-same as initial scale but restricts the ammount user can zoom in
+
+
+#maximum-scale=1.0
+-restricts the minimum scale for user
+
+##################################
+++ adjusts site to device viewport
+++ if we look on pixels only we wont be able to display our website correclty
+
+-- we cannot apply any design changes
+-- limited impact 
+
+###2. Media queries
+++change the design depending on actual size
+++ change more then size- ie color/ pictures etc
+++ designed by programmer changes
+
+*/

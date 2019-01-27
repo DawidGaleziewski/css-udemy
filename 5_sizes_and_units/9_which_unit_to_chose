@@ -1,0 +1,22 @@
+Which unit to chose? (opinionated)
+
+#1.font-size(root element)
+-% percent - change default font size, i.e 75%
+- nothing - we may rather specify size on diffrent elements and not the root
+
+#2 font-size in general:
+-rem - probably best, easy to read
+-em - mostly for children as it may get messy
+
+#3 paddin/margin 
+- rem
+
+#4 border:
+-px- border should not scale most of the time to i.e 50px
+
+#5 width/height
+-% - be aware of containing block and position property applied
+-vw/ vh - if we have a reason to relate it to viewport
+
+#6 top/bottom/left/right
+-% as we usually need relation to our containing element
